@@ -45,3 +45,6 @@ document.querySelector(".gallery").addEventListener("click", () => {
   );
   removeClasses(navItems, "show-menu");
 });
+
+// Add additional event listeners as needed
+// e.g., for closing the menu, handling specific interactions, etc.
