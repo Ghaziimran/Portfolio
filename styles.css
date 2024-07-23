@@ -10,8 +10,16 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(255, 255, 255);
-  transition: background-color 0.3s ease;
+  background: linear-gradient(to right, #2c3e50 20%, #eaeade 20%);
+  transition: background 2s ease-in-out;
+}
+
+.background-default {
+  background: linear-gradient(to right, #2c3e50 20%, #eaeade 20%);
+}
+
+.background-toggled {
+  background: linear-gradient(to right, #eaeade 20%, #2c3e50 20%);
 }
 
 /* Toggle Switch Styles */
@@ -32,12 +40,12 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #f7f2ee;
+  background-color: #f0f0f0;
   border-radius: 50px;
   cursor: pointer;
   padding: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
+  transition: background-color 1.5s ease-in-out;
 }
 
 .toggle-ball {
@@ -145,7 +153,7 @@ header {
   content: "";
   display: block;
   transform: translateX(17px);
-  width: 0px;
+  width: 0;
   height: 3px;
   background: rgb(201, 198, 198);
   transition: width 0.2s ease 0.1s;
@@ -219,7 +227,7 @@ header {
   position: absolute;
   top: 110%;
   left: 0;
-  height: 0px;
+  height: 0;
   overflow: hidden;
   background: white;
   display: grid;
@@ -290,10 +298,6 @@ a:nth-child(2):hover {
   color: skyblue;
 }
 
-.color {
-  background: rgb(246, 54, 54);
-}
-
 .show-menu {
   transform: scale(1);
   transition: transform 0.5s cubic-bezier(0.23, -0.47, 0.58, -0.63);
@@ -326,12 +330,12 @@ a:nth-child(2):hover {
 /* Hover Effects */
 .menu:hover .linee1 {
   width: 10px;
-  transform: translateX(0px);
+  transform: translateX(0);
 }
 
 .menu:hover .linee1::before {
-  width: 0px;
-  transform: translateX(0px);
+  width: 0;
+  transform: translateX(0);
 }
 
 .menu:hover .linee3 {
@@ -378,11 +382,78 @@ a:nth-child(2):hover {
     border-color: rgb(117, 117, 117);
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(0);
     border-color: rgb(119, 118, 118);
   }
 }
 
 .close {
   width: 10px;
+}
+
+/* Typing Animation */
+
+.typing.animate {
+  width: 25ch;
+  border-right: 0.1em solid black;
+  font-family: monospace;
+  font-size: 2em;
+  animation: type 2s steps(25), writer 1s infinite alternate,
+    delete 1s steps(25) 2s forwards, type2 1s steps(25) 3s forwards,
+    type3 3s steps(50) 5s forwards;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.typing.animate::before {
+  content: "Hello, My name is Ghazi";
+  animation: type2 1s steps(25) 3s forwards, type3 3s steps(50) 1.5s forwards;
+}
+
+/* Keyframes for Typing Effect */
+@keyframes type {
+  from {
+    width: 0;
+  }
+  to {
+    width: 25ch; /* Matches the width of the initial content */
+  }
+}
+
+@keyframes type2 {
+  from {
+    width: 20ch;
+    content: "Hello, My name is Ghazi";
+  }
+  to {
+    width: 25ch;
+    content: "Hello, My name is Ghazi";
+  }
+}
+
+@keyframes type3 {
+  from {
+    width: 25ch;
+    content: "Hello, My name is Ghazi";
+  }
+  to {
+    width: 50ch; /* Width extended for the final content */
+    content: "Hello, My name is Ghazi. Welcome to my portfolio!";
+  }
+}
+
+@keyframes writer {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes delete {
+  from {
+    width: 25ch; /* Matches the width of the initial content */
+  }
+  to {
+    width: 20ch;
+  }
 }
