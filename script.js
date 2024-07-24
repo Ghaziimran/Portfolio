@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const navItems = document.querySelectorAll(".nav-items"); // Changed to querySelectorAll
   const boxLines = document.querySelectorAll(".box-line"); // Changed to querySelectorAll
   const box = document.querySelector(".box");
-  const typingElement = document.querySelector(".typing"); // Changed to vanilla JavaScript
 
   // Function to remove a specific class from multiple elements
   const removeClasses = (elements, className) => {
@@ -38,15 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
       box.classList.toggle("box-show");
       boxLines.forEach((line) => line.classList.toggle("box-line-show"));
       removeClasses(navItems, "show-menu");
-    });
-  }
-
-  // Typing effect reset on click
-  if (typingElement) {
-    typingElement.addEventListener("click", () => {
-      typingElement.classList.remove("animate");
-      // Use a short timeout to ensure the class removal takes effect before re-adding it
-      setTimeout(() => typingElement.classList.add("animate"), 10);
     });
   }
 });

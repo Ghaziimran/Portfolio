@@ -1,8 +1,10 @@
 /* Basic Styles */
-* {
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
@@ -12,8 +14,12 @@ body {
   height: 100vh;
   background: linear-gradient(to right, #2c3e50 20%, #eaeade 20%);
   transition: background 2s ease-in-out;
+  font-family: Courier, serif;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Background Toggle Styles */
 .background-default {
   background: linear-gradient(to right, #2c3e50 20%, #eaeade 20%);
 }
@@ -111,7 +117,7 @@ header {
   border-radius: 30px;
   height: 50px;
   background: #f7f2ee;
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.281);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.281);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -196,7 +202,6 @@ header {
 
 .nav-items:hover {
   transform: scale(1.1);
-  transition-timing-function: 0.1s;
 }
 
 .items1 {
@@ -243,7 +248,7 @@ header {
   border-radius: 10px;
   opacity: 0;
   z-index: 0;
-  transition: opacity 0s;
+  transition: opacity 0.1s;
 }
 
 .box-line:nth-child(even) {
@@ -268,14 +273,13 @@ header {
   height: 150px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.226);
   padding: 10px;
-  transition-duration: 0.2s;
 }
 
 .box-line-show {
   opacity: 1;
-  transition-duration: 0.1s;
 }
 
+/* Footer Styles */
 footer {
   display: flex;
   position: fixed;
@@ -290,14 +294,15 @@ footer a {
   font-size: 1.8rem;
 }
 
-a:nth-child(1):hover {
+footer a:nth-child(1):hover {
   color: tomato;
 }
 
-a:nth-child(2):hover {
+footer a:nth-child(2):hover {
   color: skyblue;
 }
 
+/* Show Menu and Animation Styles */
 .show-menu {
   transform: scale(1);
   transition: transform 0.5s cubic-bezier(0.23, -0.47, 0.58, -0.63);
@@ -391,69 +396,31 @@ a:nth-child(2):hover {
   width: 10px;
 }
 
-/* Typing Animation */
+/* Hello Typing Animation */
+.wrapper2 {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
 
-.typing.animate {
-  width: 25ch;
-  border-right: 0.1em solid black;
+.typing-demo {
+  width: 50ch;
+  animation: typing 5s steps(50), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
   font-family: monospace;
   font-size: 2em;
-  animation: type 2s steps(25), writer 1s infinite alternate,
-    delete 1s steps(25) 2s forwards, type2 1s steps(25) 3s forwards,
-    type3 3s steps(50) 5s forwards;
-  overflow: hidden;
-  white-space: nowrap;
-  cursor: pointer;
 }
 
-.typing.animate::before {
-  content: "Hello, My name is Ghazi";
-  animation: type2 1s steps(25) 3s forwards, type3 3s steps(50) 1.5s forwards;
-}
-
-/* Keyframes for Typing Effect */
-@keyframes type {
+@keyframes typing {
   from {
     width: 0;
   }
-  to {
-    width: 25ch; /* Matches the width of the initial content */
-  }
 }
 
-@keyframes type2 {
-  from {
-    width: 20ch;
-    content: "Hello, My name is Ghazi";
-  }
-  to {
-    width: 25ch;
-    content: "Hello, My name is Ghazi";
-  }
-}
-
-@keyframes type3 {
-  from {
-    width: 25ch;
-    content: "Hello, My name is Ghazi";
-  }
-  to {
-    width: 50ch; /* Width extended for the final content */
-    content: "Hello, My name is Ghazi. Welcome to my portfolio!";
-  }
-}
-
-@keyframes writer {
+@keyframes blink {
   50% {
     border-color: transparent;
-  }
-}
-
-@keyframes delete {
-  from {
-    width: 25ch; /* Matches the width of the initial content */
-  }
-  to {
-    width: 20ch;
   }
 }
