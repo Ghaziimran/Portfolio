@@ -3,16 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleInput = document.getElementById("theme-toggle");
   const menuButton = document.querySelector(".menu");
   const galleryButton = document.querySelector(".gallery");
-  const navItems = document.getElementsByClassName("nav-items");
-  const boxLines = document.getElementsByClassName("box-line");
+  const navItems = document.querySelectorAll(".nav-items"); // Changed to querySelectorAll
+  const boxLines = document.querySelectorAll(".box-line"); // Changed to querySelectorAll
   const box = document.querySelector(".box");
-  const typingElement = $(".typing");
+  const typingElement = document.querySelector(".typing"); // Changed to vanilla JavaScript
 
   // Function to remove a specific class from multiple elements
   const removeClasses = (elements, className) => {
-    Array.from(elements).forEach((element) =>
-      element.classList.remove(className)
-    );
+    elements.forEach((element) => element.classList.remove(className));
   };
 
   // Initial setup to ensure the menu and box are hidden
@@ -29,9 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Menu button click event listener
   if (menuButton) {
     menuButton.addEventListener("click", () => {
-      Array.from(navItems).forEach((item) =>
-        item.classList.toggle("show-menu")
-      );
+      navItems.forEach((item) => item.classList.toggle("show-menu"));
       removeClasses(boxLines, "box-line-show");
     });
   }
@@ -40,19 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (galleryButton) {
     galleryButton.addEventListener("click", () => {
       box.classList.toggle("box-show");
-      Array.from(boxLines).forEach((line) =>
-        line.classList.toggle("box-line-show")
-      );
+      boxLines.forEach((line) => line.classList.toggle("box-line-show"));
       removeClasses(navItems, "show-menu");
     });
   }
 
   // Typing effect reset on click
-  if (typingElement.length > 0) {
-    typingElement.on("click", () => {
-      typingElement.removeClass("animate");
+  if (typingElement) {
+    typingElement.addEventListener("click", () => {
+      typingElement.classList.remove("animate");
       // Use a short timeout to ensure the class removal takes effect before re-adding it
-      setTimeout(() => typingElement.addClass("animate"), 10);
+      setTimeout(() => typingElement.classList.add("animate"), 10);
     });
   }
 });
