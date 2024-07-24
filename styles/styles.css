@@ -19,6 +19,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.my-name {
+  height: 3cm;
+  width: auto;
+  float: left;
+  transform: rotate(-17deg);
+  margin-top: 10px;
+}
+
 /* Background Toggle Styles */
 .background-default {
   background: linear-gradient(to right, #2c3e50 20%, #eaeade 20%);
@@ -399,13 +407,16 @@ footer a:nth-child(2):hover {
 /* Hello Typing Animation */
 .wrapper2 {
   height: 100vh;
-  display: grid;
+  display: flex;
   place-items: center;
+  align-items: center;
+  margin-left: 5cm;
+  margin-top: -7cm;
 }
 
-.typing-demo {
-  width: 50ch;
-  animation: typing 5s steps(50), blink 0.5s step-end infinite alternate;
+.typing {
+  width: 32ch;
+  animation: typing 5s steps(32), blink 0.5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
@@ -423,4 +434,79 @@ footer a:nth-child(2):hover {
   50% {
     border-color: transparent;
   }
+}
+
+/* -------------------------------------- */
+
+.profile-pic {
+  position: fixed;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+}
+
+.profile-pic img {
+  display: block;
+  width: 7cm;
+  height: 11cm;
+  border-radius: 5%;
+}
+
+/* -------------------------------------- */
+
+/* Modal container */
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  overflow: auto;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: block;
+  opacity: 1;
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+}
+
+/* Close button */
+button[type="button"] {
+  background-color: #f44336; /* Red */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  position: absolute; /* Position close button */
+  top: 10px;
+  right: 10px;
+}
+
+/* Link styling */
+.modal-content a {
+  color: #007bff; /* Bootstrap primary color */
+  text-decoration: none;
+}
+
+.modal-content a:hover {
+  text-decoration: underline;
 }

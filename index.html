@@ -8,10 +8,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/styles/styles.css" />
   </head>
   <body class="background-default">
     <header>
+      <div class="name">
+        <img class="my-name" src="images/Ghazi-name.png" alt="My name" />
+      </div>
+
       <div class="wrapper">
         <div class="item menu">
           <div class="linee linee1"></div>
@@ -36,15 +40,50 @@
           </label>
         </div>
 
+        <!-- LinkedIn Button and Modal -->
         <div class="nav-items items1">
-          <i class="fa-brands fa-linkedin"></i>
+          <i class="fa-brands fa-linkedin" id="linkedin-button"></i>
         </div>
+        <div id="linkedin-modal" class="modal">
+          <div class="modal-content">
+            <p>Visit my LinkedIn profile:</p>
+            <a
+              href="https://www.linkedin.com/in/ghazi-imran-8b3a10282/"
+              target="_blank"
+              >linkedin.com/in/ghazi-imran-8b3a10282/</a
+            >
+            <button type="button" id="close-modal-linkedin">Close</button>
+          </div>
+        </div>
+
+        <!-- GitHub Button and Modal -->
         <div class="nav-items items2">
-          <i class="fa-brands fa-github"></i>
+          <i class="fa-brands fa-github" id="github-button"></i>
         </div>
+        <div id="github-modal" class="modal">
+          <div class="modal-content">
+            <p>Visit my GitHub:</p>
+            <a href="https://github.com/Ghaziimran" target="_blank"
+              >github.com/Ghaziimran</a
+            >
+            <button type="button" id="close-modal-github">Close</button>
+          </div>
+        </div>
+
+        <!-- Google Button and Modal -->
         <div class="nav-items items3">
-          <i class="fa-brands fa-google"></i>
+          <i class="fa-brands fa-google" id="google-button"></i>
         </div>
+        <div id="google-modal" class="modal">
+          <div class="modal-content">
+            <p>Email me at:</p>
+            <a href="mailto:ghaziimran2105@gmail.com" target="_blank"
+              >ghaziimran2105@gmail.com</a
+            >
+            <button type="button" id="close-modal-google">Close</button>
+          </div>
+        </div>
+
         <!-- <div class="nav-items items4">
           <i class="fas fa-heart"></i>
         </div> -->
@@ -58,10 +97,14 @@
       <div class="effect"></div>
     </header>
     <div class="wrapper2">
-      <div class="typing-demo">
-        Hello, My name is Ghazi. Welcome to my Portfolio
+      <div class="typing">Hello, Welcome to my Portfolio!</div>
+    </div>
+    <div class="profile-container">
+      <div class="profile-picture">
+        <img src="images/Ghazi - ProfilePicture.jpg" alt="My profile pic" />
       </div>
     </div>
-    <script src="script.js"></script>
+
+    <script src="/scripts/script.js"></script>
   </body>
 </html>
