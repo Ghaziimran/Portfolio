@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One");
+
+:root {
+  --background-light: linear-gradient(to right, #eaeade 20%, #2c3e50 20%);
+  --background-dark: linear-gradient(to right, #2c3e50 20%, #eaeade 20%);
+  --shadow: #f32e04; /* Updated shadow color */
+}
 /* Basic Styles */
 *,
 *:before,
@@ -12,7 +19,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(to right, #2c3e50 20%, #eaeade 20%);
+  background: var(--background-light); /* Set initial background gradient */
   transition: background 2s ease-in-out;
   font-family: Courier, serif;
   text-align: center;
@@ -29,13 +36,14 @@ body {
 
 /* Background Toggle Styles */
 .background-default {
-  background: linear-gradient(to right, #2c3e50 20%, #eaeade 20%);
+  background: var(--background-light);
 }
 
-.background-toggled {
-  background: linear-gradient(to right, #eaeade 20%, #2c3e50 20%);
+.background-dark {
+  background: var(--background-dark); /* Dark mode background */
 }
 
+/* Toggle Switch Styles */
 /* Toggle Switch Styles */
 .toggle-container {
   position: relative;
@@ -340,148 +348,83 @@ footer a:nth-child(2):hover {
   transform: translate(-50%, -50%) scale(1);
 }
 
-/* Hover Effects */
-.menu:hover .linee1 {
-  width: 10px;
-  transform: translateX(0);
-}
-
-.menu:hover .linee1::before {
-  width: 0;
-  transform: translateX(0);
-}
-
-.menu:hover .linee3 {
-  width: 15px;
-}
-
-.menu:hover .linee3::after {
-  content: "";
-  display: block;
-  transform: translateX(17px);
-  width: 3px;
-  height: 3px;
-  background: rgb(201, 198, 198);
-  transition: width 0.2s ease 0.1s;
-}
-
-.gallery:hover .dot1 {
-  animation: jump 0.4s ease 1;
-}
-
-.gallery:hover .dot2 {
-  animation: jump 0.4s ease 0.1s 1;
-}
-
-.gallery:hover .dot3 {
-  animation: jump 0.4s ease 0.2s 1;
-}
-
-.gallery:hover .dot4 {
-  animation: jump 0.4s ease 0.3s 1;
-}
-
-.gallery:hover .dot5 {
-  animation: jump 0.4s ease 0.4s 1;
-}
-
-.gallery:hover .dot6 {
-  animation: jump 0.4s ease 0.5s 1;
-}
-
-@keyframes jump {
-  50% {
-    transform: translateY(-4px);
-    border-color: rgb(117, 117, 117);
-  }
-  100% {
-    transform: translateY(0);
-    border-color: rgb(119, 118, 118);
-  }
-}
-
-.close {
-  width: 10px;
-}
-
-/* Hello Typing Animation */
-.wrapper2 {
-  height: 100vh;
-  display: flex;
-  place-items: center;
-  align-items: center;
-  margin-left: 5cm;
-  margin-top: -7cm;
-}
-
-.typing {
-  width: 32ch;
-  animation: typing 5s steps(32), blink 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
-  font-family: monospace;
-  font-size: 2em;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-/* -------------------------------------- */
-
-.profile-pic {
-  position: fixed;
-  top: 50%;
-  left: 8%;
-  transform: translateY(-50%);
-}
-
-.profile-pic img {
-  display: block;
+/* Modal and Profile Picture Styles */
+.profile-container {
+  position: absolute;
   width: 7cm;
   height: 11cm;
-  border-radius: 5%;
+  top: 24%;
+  left: 8%;
 }
 
-/* -------------------------------------- */
+.profile-figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 290px;
+  height: 397px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#profile-card {
+  background-image: url(../images/Ghazi-ProfilePicture.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+#behind-card {
+  background: linear-gradient(10deg, #aaab97, #c8c1a2, #c0c9b5, #b1c3b5);
+  z-index: 1;
+  width: 330px;
+  height: 397px;
+  text-align: center;
+  color: #2c3e50;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.behind-text {
+  font-family: cursive;
+  font-size: 1em;
+  color: #2c3e50;
+  margin-top: 20px;
+}
+
+.show-behind #behind-card {
+  transform: translateX(320px);
+}
 
 /* Modal container */
 .modal {
-  display: none;
+  display: none; /* Hidden by default */
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1000;
-  overflow: auto;
-  transition: opacity 0.3s ease;
-}
-
-.modal.show {
-  display: block;
-  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+  z-index: 1000; /* Sit on top */
+  overflow: auto; /* Enable scroll if needed */
 }
 
 /* Modal content */
 .modal-content {
   background-color: #fff;
-  margin: 10% auto;
+  margin: 10% auto; /* Center the modal */
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
   max-width: 600px;
-  position: relative;
+  position: relative; /* To position the close button */
 }
 
 /* Close button */
@@ -509,4 +452,67 @@ button[type="button"] {
 
 .modal-content a:hover {
   text-decoration: underline;
+}
+
+/* Container */
+.container {
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  display: block;
+  max-width: 225px;
+  text-align: center;
+}
+
+.title-container {
+  display: block;
+  left: 50%;
+  margin-left: 30ch;
+  margin-top: -50px;
+}
+
+h1 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 102px;
+  margin: 0;
+  line-height: 90px;
+  letter-spacing: 2px;
+  text-align: left;
+}
+
+.text-bold {
+  color: #fff; /* White text color */
+  text-shadow: 5px 2px 6px var(--shadow); /* Shadow color updated */
+  padding-right: 1px;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  font-family: "Fjalla One", sans-serif;
+  display: inline; /* Ensure span does not break onto new lines */
+}
+
+span {
+  transform: skew(-10deg);
+  display: inline; /* Changed to inline for better text alignment */
+  text-shadow: var(--shadow) 1px 1px, var(--shadow) 2px 2px,
+    var(--shadow) 3px 3px, var(--shadow) 4px 4px;
+}
+
+/* Specific color for span with different classes if needed */
+.title-container .red {
+  color: #fff;
+}
+
+.title-container .green {
+  color: #fff;
+}
+
+.title-container .yellow {
+  color: #fff;
+}
+
+.sub-text {
+  margin-left: 20px;
+  text-align: center;
 }

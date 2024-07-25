@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const boxLines = document.querySelectorAll(".box-line");
   const box = document.querySelector(".box");
 
+  const profileCard = document.getElementById("profile-card");
+  const profileContainer = document.querySelector(".profile-container");
+  const behindCard = document.getElementById("behind-card");
+
   // Modal DOM elements
   const linkedinButton = document.getElementById("linkedin-button");
   const githubButton = document.getElementById("github-button");
@@ -32,32 +36,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Toggle theme based on the switch
   toggleInput.addEventListener("change", () => {
-    document.body.classList.toggle("background-toggled", toggleInput.checked);
-    document.body.classList.toggle("background-default", !toggleInput.checked);
+    const isChecked = toggleInput.checked;
+
+    // Change gradient background based on the toggle
+    document.body.style.background = isChecked
+      ? "linear-gradient(to right, #2c3e50 20%, #eaeade 20%)" // Dark mode gradient
+      : "linear-gradient(to right, #eaeade 20%, #2c3e50 20%)"; // Light mode gradient
   });
 
   // Menu button click event listener
-  menuButton?.addEventListener("click", () => {
-    navItems.forEach((item) => item.classList.toggle("show-menu"));
-    removeClasses(boxLines, "box-line-show");
-  });
+  if (menuButton) {
+    menuButton.addEventListener("click", () => {
+      navItems.forEach((item) => item.classList.toggle("show-menu"));
+      removeClasses(boxLines, "box-line-show");
+    });
+  }
 
   // Gallery button click event listener
-  galleryButton?.addEventListener("click", () => {
-    box.classList.toggle("box-show");
-    boxLines.forEach((line) => line.classList.toggle("box-line-show"));
-    removeClasses(navItems, "show-menu");
-  });
+  if (galleryButton) {
+    galleryButton.addEventListener("click", () => {
+      box.classList.toggle("box-show");
+      boxLines.forEach((line) => line.classList.toggle("box-line-show"));
+      removeClasses(navItems, "show-menu");
+    });
+  }
 
   // Functions to open and close modals
   const toggleModal = (modal, display) => {
-    if (display === "block") {
-      modal.classList.add("show");
-      modal.setAttribute("aria-hidden", "false");
-    } else {
-      modal.classList.remove("show");
-      modal.setAttribute("aria-hidden", "true");
-    }
+    modal.style.display = display;
   };
 
   const openModal = (modal) => toggleModal(modal, "block");
@@ -89,10 +95,15 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       [linkedinModal, githubModal, googleModal].forEach((modal) => {
-        if (modal.classList.contains("show")) {
+        if (modal.style.display === "block") {
           closeModal(modal);
         }
       });
     }
+  });
+
+  profileCard.addEventListener("click", () => {
+    profileContainer.classList.toggle("show-behind");
+    behindCard.classList.toggle("show-behind");
   });
 });
