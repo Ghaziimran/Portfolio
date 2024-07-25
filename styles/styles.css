@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Fjalla+One");
-
 :root {
-  --background-light: linear-gradient(to right, #eaeade 20%, #2c3e50 20%);
-  --background-dark: linear-gradient(to right, #2c3e50 20%, #eaeade 20%);
-  --shadow: #f32e04; /* Updated shadow color */
+  --background-light: linear-gradient(to right, #eaeade 35%, #2c3e50 90%);
+  --background-dark: linear-gradient(to right, #2c3e50 37%, #eaeade 150%);
+  --shadow: #f32e04;
 }
+
 /* Basic Styles */
 *,
 *:before,
@@ -19,11 +19,16 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: var(--background-light); /* Set initial background gradient */
-  transition: background 2s ease-in-out;
+  background: var(--background-light); /* Apply the default background */
+  transition: background 1s ease-in-out;
   font-family: Courier, serif;
   text-align: center;
   -webkit-font-smoothing: antialiased;
+}
+
+.background-toggled {
+  background: var(--background-dark); /* Apply the toggled background */
+  transition: background 1s ease-in-out;
 }
 
 .my-name {
@@ -35,16 +40,6 @@ body {
 }
 
 /* Background Toggle Styles */
-.background-default {
-  background: var(--background-light);
-}
-
-.background-dark {
-  background: var(--background-dark); /* Dark mode background */
-}
-
-/* Toggle Switch Styles */
-/* Toggle Switch Styles */
 .toggle-container {
   position: relative;
   width: 60px;
@@ -67,7 +62,7 @@ body {
   cursor: pointer;
   padding: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: background-color 1.5s ease-in-out;
+  transition: background-color 0.3s ease;
 }
 
 .toggle-ball {

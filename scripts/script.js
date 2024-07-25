@@ -36,12 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Toggle theme based on the switch
   toggleInput.addEventListener("change", () => {
-    const isChecked = toggleInput.checked;
-
-    // Change gradient background based on the toggle
-    document.body.style.background = isChecked
-      ? "linear-gradient(to right, #2c3e50 20%, #eaeade 20%)" // Dark mode gradient
-      : "linear-gradient(to right, #eaeade 20%, #2c3e50 20%)"; // Light mode gradient
+    if (toggleInput.checked) {
+      // Dark mode
+      document.body.style.background = "var(--background-dark)";
+    } else {
+      // Light mode
+      document.body.style.background = "var(--background-light)";
+    }
   });
 
   // Menu button click event listener
