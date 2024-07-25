@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Fjalla+One");
 :root {
-  --background-light: linear-gradient(to right, #eaeade 35%, #2c3e50 90%);
-  --background-dark: linear-gradient(to right, #2c3e50 37%, #eaeade 150%);
+  --background-light: linear-gradient(to bottom, #eaeade 25%, #2c3e50 100%);
+  --background-dark: linear-gradient(to bottom, #2c3e50 37%, #eaeade 150%);
   --shadow: #f32e04;
 }
 
@@ -19,7 +19,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: var(--background-light); /* Apply the default background */
+  background: var(--background-light);
   transition: background 1s ease-in-out;
   font-family: Courier, serif;
   text-align: center;
@@ -27,7 +27,7 @@ body {
 }
 
 .background-toggled {
-  background: var(--background-dark); /* Apply the toggled background */
+  background: var(--background-dark);
   transition: background 1s ease-in-out;
 }
 
@@ -461,10 +461,13 @@ button[type="button"] {
 }
 
 .title-container {
-  display: block;
-  left: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 50px auto;
+  /* left: 50%;
   margin-left: 30ch;
-  margin-top: -50px;
+  margin-top: -50px; */
 }
 
 h1 {
@@ -478,36 +481,34 @@ h1 {
 }
 
 .text-bold {
-  color: #fff; /* White text color */
-  text-shadow: 5px 2px 6px var(--shadow); /* Shadow color updated */
+  color: #fff;
+  text-shadow: 5px 2px 6px var(--shadow);
   padding-right: 1px;
   letter-spacing: 1px;
   font-weight: bolder;
   font-family: "Fjalla One", sans-serif;
-  display: inline; /* Ensure span does not break onto new lines */
+  display: inline;
 }
 
-span {
+/* span {
   transform: skew(-10deg);
-  display: inline; /* Changed to inline for better text alignment */
+  display: inline;
   text-shadow: var(--shadow) 1px 1px, var(--shadow) 2px 2px,
     var(--shadow) 3px 3px, var(--shadow) 4px 4px;
-}
-
-/* Specific color for span with different classes if needed */
-.title-container .red {
-  color: #fff;
-}
-
-.title-container .green {
-  color: #fff;
-}
-
-.title-container .yellow {
-  color: #fff;
-}
+} */
 
 .sub-text {
-  margin-left: 20px;
-  text-align: center;
+  width: 28%;
+  padding: 10px;
+  /* border: 2px solid #ccc; */
+  /* border-radius: 4px; */
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  margin-left: 55ch;
+  margin-top: -35px;
 }
+
+/* .sub-text:focus {
+    border-color: #007bff;
+    outline: none;
+  } */
