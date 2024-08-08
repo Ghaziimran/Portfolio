@@ -14,7 +14,7 @@
   --color-dark-purple: #192734;
 
   /* extra colors */
-  --color-sidebar: #48426d;
+  --color-sidebar: #8a2e2e;
   --color-sidebar-text: #edc08c;
   --shadow: #f32e04;
 }
@@ -178,6 +178,24 @@ header {
 
 .sub-text {
   margin-top: 20px;
+  color: #fff;
+  text-shadow: 5px 2px 6px var(--shadow);
+  width: 72ch;
+  animation: typing 5s steps(74), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
 
 /* SECTION -------------------------------------------------------------------------------- */
@@ -414,6 +432,10 @@ header {
 
 /* SECTION -------------------------------------------------------------------------------- */
 /* modal */
+
+.contact-text {
+  color: var(--color-sidebar-text);
+}
 
 .iconbtn {
   margin-top: 20px;
