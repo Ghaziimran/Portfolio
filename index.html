@@ -4,14 +4,123 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ghazi Imran Portfolio</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="/styles/styles.css" />
+
+    <script
+      src="https://kit.fontawesome.com/0255345a50.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="/styles/styles2.css" />
+    <script src="https://cdn.jsdelivr.net/npm/kinet@latest/dist/kinet.min.js"></script>
   </head>
+
   <body class="background-default">
-    <header>
+    <div id="circle" class="circle bg-yellow-500"></div>
+
+    <div class="container">
+      <section class="one">
+        <header>
+          <div class="name">
+            <img class="my-name" src="images/Ghazi-name.png" alt="My name" />
+          </div>
+        </header>
+
+        <div class="job-box">
+          <div class="job-text">
+            <h1 class="job-heading">
+              <span class="text-bold">Frontend <br />Developer.</span>
+            </h1>
+            <p class="sub-text">
+              I specialise in crafting visually appealing, highly functional,
+              and dynamic front-end experiences.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-wrapper">
+          <div class="grid">
+            <div class="item grid-box1">
+              <div class="mode-toggle">
+                <div class="daynight">
+                  <label for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="toggle">
+                      <div class="cloud"></div>
+                      <div class="star"></div>
+                      <div class="sea"></div>
+                      <div class="mountains"></div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="item grid-box2">
+              <div class="case">
+                <a title="modal-btn" class="iconbtn" href="#open-modal">
+                  <i
+                    class="fa-brands fa-linkedin fa-2xl"
+                    style="color: #edc08c"
+                    id="linkedin-button"
+                  ></i>
+                </a>
+                <!-- Modal Window -->
+                <div id="open-modal" class="modal-window">
+                  <div>
+                    <a href="#" title="Close" class="modal-close">×</a>
+                    <p>Check out 👇 my LinkedIn:</p>
+                    <br />
+                    <a
+                      href="https://www.linkedin.com/in/ghazi-imran-8b3a10282/"
+                      target="_blank"
+                      >linkedin.com/in/ghazi-imran-8b3a10282/</a
+                    >
+                  </div>
+                </div>
+
+                <a title="modal-btn" class="iconbtn" href="#open-modal">
+                    <i
+                      class="fa-brands fa-github fa-2xl"
+                      style="color: #edc08c"
+                      id="github-button"
+                    ></i>
+                  </a>
+                  <!-- Modal Window -->
+                  <div id="open-modal" class="modal-window">
+                    <div>
+                      <a href="#" title="Close" class="modal-close">×</a>
+                      <p>Check out 👇 my Github:</p>
+                      <br />
+                      <a
+                        href="https://github.com/Ghaziimran"
+                        target="_blank"
+                        >github.com/Ghaziimran</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------------------------- -->
+      <section class="two">
+        <h1>Second page</h1>
+      </section>
+      <!-- ------------------------------------------------------------------------- -->
+      <section class="three">
+        <h1>Third page</h1>
+      </section>
+      <!-- ------------------------------------------------------------------------- -->
+      <section class="four">
+        <h1>Web dev</h1>
+      </section>
+    </div>
+
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>
+
+<!-- ------------------------------------------------------------------------------------------- -->
+
+<!-- <header>
       <div class="name">
         <img class="my-name" src="images/Ghazi-name.png" alt="My name" />
       </div>
@@ -38,10 +147,10 @@
             <div class="toggle-icon sun">☀️</div>
             <div class="toggle-icon moon">🌙</div>
           </label>
-        </div>
+        </div> -->
 
-        <!-- LinkedIn Button and Modal -->
-        <div class="nav-items items1">
+<!-- LinkedIn Button and Modal -->
+<!-- <div class="nav-items items1">
           <i class="fa-brands fa-linkedin" id="linkedin-button"></i>
         </div>
         <div id="linkedin-modal" class="modal">
@@ -54,10 +163,10 @@
             >
             <button type="button" id="close-modal-linkedin">Close</button>
           </div>
-        </div>
+        </div> -->
 
-        <!-- GitHub Button and Modal -->
-        <div class="nav-items items2">
+<!-- GitHub Button and Modal -->
+<!-- <div class="nav-items items2">
           <i class="fa-brands fa-github" id="github-button"></i>
         </div>
         <div id="github-modal" class="modal">
@@ -68,10 +177,10 @@
             >
             <button type="button" id="close-modal-github">Close</button>
           </div>
-        </div>
+        </div> -->
 
-        <!-- Google Button and Modal -->
-        <div class="nav-items items3">
+<!-- Google Button and Modal -->
+<!-- <div class="nav-items items3">
           <i class="fa-brands fa-google" id="google-button"></i>
         </div>
         <div id="google-modal" class="modal">
@@ -82,12 +191,9 @@
             >
             <button type="button" id="close-modal-google">Close</button>
           </div>
-        </div>
-
-        <!-- <div class="nav-items items4">
-          <i class="fas fa-heart"></i>
         </div> -->
-        <div class="box">
+
+<!-- <div class="box">
           <div class="box-line box-line1"></div>
           <div class="box-line box-line2"></div>
           <div class="box-line box-line3"></div>
@@ -96,54 +202,58 @@
       </div>
       <div class="effect"></div>
     </header>
-    <!-- <div class="wrapper2">
-      <div class="typing">Hello, Welcome to my Portfolio!</div>
-    </div> -->
-    <!-- <div class="profile-pic">
-      <img src="images/Ghazi-ProfilePicture.jpg" alt="My profile pic" />
-    </div> -->
-    <!-- --------------------------------------------------------------------------- -->
-
-    <div class="profile-container">
-      <div class="profile-figure" id="profile-card"></div>
-
-      <!-- Second card behind the first one -->
-      <div class="profile-figure behind" id="behind-card">
-        <figcaption class="behind-text">
-          <p>
-            Hello! I'm Ghazi, a 23-year-old self-taught Front-end Developer.
-            I've built this portfolio from scratch to showcase my skills in
-            JavaScript, HTML, and CSS. Feel free to explore my work and see what
-            I can do.
-            <br />
-            <br />
-            If you’d like to get in touch, you can find my email, LinkedIn, and
-            GitHub links in the top right corner of this page. I’m always open
-            to discussing work opportunities and potential collaborations.
-            Looking forward to connecting!
-          </p>
-        </figcaption>
-      </div>
-    </div>
-
-    <!-- ------------------------------------------------------------------------ -->
     <div>
-      <section class="title-container">
+      <div class="profile-container">
+        <div class="profile-figure" id="profile-card"></div>
+        <div class="profile-figure behind" id="behind-card">
+          <figcaption class="behind-text">
+            <p>
+              Hello! I'm Ghazi, a 23-year-old self-taught Front-end Developer.
+              I've built this portfolio from scratch to showcase my skills in
+              JavaScript, HTML, and CSS. Feel free to explore my work and see
+              what I can do.
+              <br /><br />
+              If you’d like to get in touch, you can find my email, LinkedIn,
+              and GitHub links in the top right corner of this page. I’m always
+              open to discussing work opportunities and potential
+              collaborations. Looking forward to connecting!
+            </p>
+          </figcaption>
+        </div>
+      </div>
+
+      <div class="title-container">
         <h1>
           <span class="text-bold"
             >Frontend <br />
             Developer.</span
           >
         </h1>
-      </section>
-      <p class="sub-text">
-        I specialise in crafting visually appealing, highly functional, and
-        dynamic front-end experiences.
-        <!-- I also take pleasure in continuously
-        expanding my knowledge of programming, with a focus on performance
-        optimisation, UI/UX design, and practical machine learning applications. -->
-      </p>
+        <p class="sub-text">
+          I specialise in crafting visually appealing, highly functional, and
+          dynamic front-end experiences.
+        </p>
+      </div>
     </div>
-    <script src="/scripts/script.js"></script>
-  </body>
-</html>
+ -->
+
+<!-- <section class="page-2">
+      <div class="design-div">
+        <h2 class="text-bold">Design</h2>
+        <p class="skills-desc">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+          excepturi nisi explicabo fugiat ex quia repellendus ducimus, cumque
+          sed doloremque tempora. Libero ratione porro eos amet consequuntur
+          magnam nisi unde!
+        </p>
+      </div>
+      <div class="dev-div">
+        <h2 class="text-bold">Development and Engineering</h2>
+        <p class="skills-desc">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor,
+          similique sequi obcaecati, voluptatem repudiandae exercitationem
+          aspernatur iusto quibusdam saepe aperiam sed dolores molestiae
+          voluptates maxime at temporibus fugit nobis. Error.
+        </p>
+      </div>
+    </section> -->
