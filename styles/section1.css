@@ -104,14 +104,23 @@ h1 {
 
 .two {
   background-color: var(--color-green);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .three {
   background-color: var(--color-blue);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .four {
   background-color: var(--color-purple);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
 /* Dark Mode Specific Styles */
