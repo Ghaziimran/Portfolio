@@ -17,6 +17,10 @@
   --color-sidebar: #8a2e2e;
   --color-sidebar-text: #d0c3b0;
   --shadow: #f32e04;
+  --shadow-dark: #4f2d1a;
+
+  /* extras*/
+  --item-size: 40px;
 }
 
 /* SECTION -------------------------------------------------------------------------------- */
@@ -174,6 +178,7 @@ header {
 }
 
 /* SECTION -------------------------------------------------------------------------------- */
+/* circle pointer */
 
 .circle {
   width: 8px;
@@ -187,6 +192,8 @@ header {
   background-color: #dee835;
   box-shadow: 0px 4px 8px #9ba225, 0px 0px 16px #6f741b;
 }
+
+/* SECTION -------------------------------------------------------------------------------- */
 
 /* SECTION -------------------------------------------------------------------------------- */
 
@@ -481,11 +488,18 @@ header {
 
 .contact-text {
   color: var(--color-sidebar-text);
+  text-shadow: 5px 2px 6px var(--shadow-dark);
 }
 
 .iconbtn {
   margin-top: 20px;
   color: var(--color-sidebar-text);
+  transition: transform 0.2s;
+  text-shadow: 5px 2px 6px var(--shadow-dark);
+}
+
+.iconbtn :hover {
+  transform: scale(1.5);
 }
 
 .modal-window {
