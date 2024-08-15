@@ -14,8 +14,8 @@
   --color-dark-purple: #192734;
 
   /* extra colors */
-  --color-sidebar: #8a2e2e;
-  --color-sidebar-text: #d0c3b0;
+  --color-sidebar: #f42e04;
+  --color-sidebar-text: #fff;
   --shadow: #f32e04;
   --shadow-dark: #4f2d1a;
 
@@ -80,9 +80,11 @@ h1 {
   float: left;
   transform: rotate(-17deg);
   margin-top: 10px;
+  position: absolute;
 }
 
-/* PART ----------------------------------------------- */
+/* PART --------------------------------------------
+--- */
 /* Color Scheme */
 .one {
   position: relative;
@@ -166,7 +168,7 @@ h1 {
 /* ----------------------------------------------- */
 
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -194,6 +196,66 @@ header {
 }
 
 /* SECTION -------------------------------------------------------------------------------- */
+/* page 2 button */
+
+.button-page2 {
+  align-items: center;
+  background-color: var(--color-sidebar);
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  left: 5%;
+  top: 85%;
+}
+
+.button-page2:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform 0.2s ease-out;
+  z-index: -1;
+}
+
+.button-page2:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-page2:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.button-page2:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-page2 {
+    padding: 0 40px;
+  }
+}
 
 /* SECTION -------------------------------------------------------------------------------- */
 
@@ -256,10 +318,17 @@ header {
 .item {
   background-color: var(--color-sidebar);
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 5px 4px black;
   border-radius: 8px;
   text-align: center;
   cursor: pointer;
+  border: 2px solid #111;
+  box-sizing: border-box;
+  justify-content: center;
+  text-decoration: none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
 }
 
 /* grids */
@@ -270,6 +339,7 @@ header {
   justify-content: flex-end;
   width: 100%;
   margin-right: 30px;
+  margin-top: 10px;
 }
 
 .grid {
@@ -313,7 +383,7 @@ header {
   height: 80px;
   width: 200px;
   border-radius: 9999px;
-  background: linear-gradient(to bottom, #6ec8ff, #1f73a7);
+  background: linear-gradient(to bottom, #c6623d, #c8633b);
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -326,7 +396,7 @@ header {
   width: 100%;
   position: absolute;
   z-index: 3;
-  background-color: #1d7371;
+  background-color: #aa5240;
   transition: background 0.5s ease-in-out, transform 0.5s ease-in-out;
   clip-path: polygon(
     0% 80%,
@@ -345,7 +415,7 @@ header {
   height: 8px;
   width: 18px;
   border-radius: 9999px;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--color-sidebar-text);
   position: absolute;
   top: 20%;
   left: 10%;

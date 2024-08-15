@@ -65,4 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
       section3.scrollIntoView({ behavior: "smooth" });
     });
   }
+
+  // PAGE 1 -> 2 button
+  const page2button = document.getElementById("page2button");
+  const section2 = document.getElementById("section2");
+
+  if (page2button && section2) {
+    page2button.addEventListener("click", function () {
+      // Smooth scroll to Section 2
+      section2.scrollIntoView({ behavior: "smooth" });
+    });
+  }
 });
