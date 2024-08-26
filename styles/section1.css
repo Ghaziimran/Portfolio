@@ -382,7 +382,8 @@ header {
 .toggle {
   height: 80px;
   width: 200px;
-  border-radius: 9999px;
+  border-radius: 35px;
+  border: 2px solid #111;
   background: linear-gradient(to bottom, #c6623d, #c8633b);
   position: relative;
   overflow: hidden;
