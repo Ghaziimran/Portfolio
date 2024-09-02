@@ -55,17 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Add smooth scroll functionality for "Learn More" button
-  const learnMoreButton = document.getElementById("learnMoreButton");
-  const section3 = document.getElementById("section3");
-
-  if (learnMoreButton && section3) {
-    learnMoreButton.addEventListener("click", function () {
-      // Smooth scroll to Section 3
-      section3.scrollIntoView({ behavior: "smooth" });
-    });
-  }
-
   // PAGE 1 -> 2 button
   const page2button = document.getElementById("page2button");
   const section2 = document.getElementById("section2");
@@ -76,4 +65,67 @@ document.addEventListener("DOMContentLoaded", () => {
       section2.scrollIntoView({ behavior: "smooth" });
     });
   }
+  // Add smooth scroll functionality for "Learn More" button
+  const learnMoreButton = document.getElementById("learnMoreButton");
+  const section3 = document.getElementById("section3");
+
+  if (learnMoreButton && section3) {
+    learnMoreButton.addEventListener("click", function () {
+      // Smooth scroll to Section 3
+      section3.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+  // -----------------------------------------------------------------------------
+
+  const content = document.querySelector(".card-content");
+  const switchInput = document.querySelector(
+    '.checkbox-wrapper input[type="checkbox"]'
+  );
+
+  switchInput.addEventListener("change", () => {
+    if (switchInput.checked) {
+      content.style.transform = "rotateY(180deg)";
+    } else {
+      content.style.transform = "rotateY(0deg)";
+    }
+  });
+
+  // -----------------------------------------------------------------------------
+  // Function to initialize the slideshow for each card
+  function initSlideshow(cardElement) {
+    const images = cardElement.querySelectorAll(".card-image img");
+    const prevBtn = cardElement.querySelector(".prev-btn");
+    const nextBtn = cardElement.querySelector(".next-btn");
+    let currentIndex = 0;
+
+    // Function to show image based on index
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.remove("active");
+        img.classList.add("hidden");
+        if (i === index) {
+          img.classList.add("active");
+          img.classList.remove("hidden");
+        }
+      });
+    }
+  }
+  // Event listeners for the buttons
+  prevBtn.addEventListener("click", function () {
+    currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+    showImage(currentIndex);
+  });
+
+  // nextBtn.addEventListener("click", function () {
+  currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+  showImage(currentIndex);
 });
+
+// Initialize the first image as active
+showImage(currentIndex);
+
+// Apply slideshow functionality to all project cards
+const projectCards = document.querySelectorAll(".project.card");
+projectCards.forEach(initSlideshow);
+
+// -----------------------------------------------------------------------------
