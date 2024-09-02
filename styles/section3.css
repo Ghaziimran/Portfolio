@@ -1,84 +1,140 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap");
 
-.card1 {
-  position: absolute;
-  top: 50%;
-  left: 20%;
-  width: 300px;
-  height: 300px;
-  margin: -150px;
-  perspective: 500px;
-  z-index: 1;
-}
-.card2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300px;
-  height: 300px;
-  margin: -150px;
-  perspective: 500px;
-  z-index: 1;
+/* Global resets and styling */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.card3 {
-  position: absolute;
-  top: 50%;
-  left: 80%;
-  width: 300px;
-  height: 300px;
-  margin: -150px;
-  perspective: 500px;
+.projects {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 24px;
+  margin-top: 50px;
+}
+
+.card {
+  position: relative;
+  width: 500px;
+  height: 320px;
+  perspective: 1000px;
   z-index: 1;
 }
 
 .card-content {
-  position: absolute;
   width: 100%;
   height: 100%;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   transition: transform 1s;
   transform-style: preserve-3d;
+  position: relative;
 }
 
 .front,
 .back {
   position: absolute;
-  height: 100%;
   width: 100%;
-  background: white;
-  line-height: 300px;
-  color: #03446a;
-  text-align: center;
-  font-size: 60px;
-  border-radius: 5px;
+  height: 100%;
   backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.front {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .back {
-  background: #03446a;
+  background-color: #03446a;
   color: white;
   transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-size: 18px;
+  text-align: center;
 }
 
-.checkbox-wrapper {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translateX(-50%);
-  cursor: pointer;
-  z-index: 2;
+.card-image {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
+  border-radius: 10px;
 }
 
-.checkbox-wrapper input[type="checkbox"] {
-  visibility: hidden;
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.card-image img.hidden {
   display: none;
 }
 
-.checkbox-wrapper *,
-.checkbox-wrapper ::after,
-.checkbox-wrapper ::before {
-  box-sizing: border-box;
+.card-image img.active {
+  display: block;
+}
+
+.project-title {
+  font-size: 20px;
+  color: #03446a;
+  margin-top: -12px;
+  gap: 5px;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #03446a;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  color: #ff7f50;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+/* Checkbox styles */
+.checkbox-wrapper {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 3;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  display: none;
 }
 
 .checkbox-wrapper .switch {
@@ -91,7 +147,6 @@
 
 .checkbox-wrapper .slider {
   position: absolute;
-  cursor: pointer;
   inset: 0;
   background-color: #eee;
   transition: 0.4s;
@@ -121,90 +176,3 @@
   transform: translateX(2em);
   background: lightgreen;
 }
-
-/* ---------------------------- */
-/* Reset and basic styling */
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-/* Global image settings */
-img {
-  max-width: 100%;
-  display: block;
-  border-radius: 10px;
-}
-
-/* Projects container */
-.projects {
-  display: grid;
-  width: 120%;
-  max-width: 1200px;
-  margin-inline: auto;
-  padding-inline: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
-}
-
-/* Card styling */
-.project.card {
-  position: relative;
-  background-color: #fff;
-  border-radius: 15px;
-  overflow: hidden;
-  padding: 1rem;
-  transition: 0.15s ease-in;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
-
-.project.card:hover,
-.project.card:focus-within {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  transform: translateY(-5px);
-}
-
-/* Image container */
-.card-image {
-  position: relative;
-  overflow: hidden;
-}
-
-.card-image img {
-  width: 100%;
-  display: none;
-  transition: opacity 0.4s ease-in-out;
-}
-
-.card-image img.active {
-  display: block;
-}
-
-/* Button styling */
-.prev-btn,
-.next-btn {
-  position: absolute;
-  top: 50%;
-  cursor: pointer;
-}
-
-.prev-btn {
-  left: 10px;
-}
-
-.next-btn {
-  right: 10px;
-}
-
-.prev-btn:hover polyline,
-.prev-btn:focus polyline {
-  stroke-width: 3;
-}
-
-/* ---------------------------- */
-
-/* ----------------------------------------------------------- */
