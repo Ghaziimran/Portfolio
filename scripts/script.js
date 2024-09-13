@@ -77,6 +77,18 @@ document.addEventListener("DOMContentLoaded", () => {
       section3.scrollIntoView({ behavior: "smooth" });
     });
   }
+
+  // Add smooth scroll functionality for "Learn More" button
+  const page3button = document.getElementById("page3button");
+  const section4 = document.getElementById("section4");
+
+  if (page3button && section4) {
+    page3button.addEventListener("click", function () {
+      // Smooth scroll to Section 4
+      section4.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
   // -----------------------------------------------------------------------------
 
   // Function to initialize the slideshow for each card
