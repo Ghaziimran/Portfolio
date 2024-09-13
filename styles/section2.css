@@ -108,3 +108,11 @@
   color: #fff;
   transform: translateY(-7px);
 }
+
+/* ----------------------------------------------- */
+.svg-arrow2 {
+  position: absolute;
+  top: 48%;
+  left: 79%;
+  transform: rotate(25deg);
+}

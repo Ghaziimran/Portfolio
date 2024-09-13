@@ -271,3 +271,17 @@
 .section3-button-pushable:focus:not(:focus-visible) {
   outline: none;
 }
+
+/* ------------------------------------------------------------ */
+.svg-graphic-code {
+  position: absolute;
+  top: 10%;
+  left: 47%;
+}
+
+.svg-arrowsection3 {
+  position: absolute;
+  top: 90%;
+  left: 77%;
+  pointer-events: none;
+}

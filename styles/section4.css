@@ -1,3 +1,191 @@
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One");
+
+.skills-container {
+  position: absolute;
+  top: 25%;
+  left: 70%;
+}
+
 .skill-icons {
-  font-size: 50px;
+  font-size: 1.8em;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  background: #732773;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  top: 50%;
+  display: inline-block;
+  padding: 0 5px;
+  margin-bottom: 10px;
+}
+
+.skill-icons:hover,
+.skill-icons:active {
+  transform: scale(1.1);
+}
+
+.svg-graphic-section4 {
+  position: absolute;
+  top: 30%;
+  left: 80%;
+  z-index: -2;
+}
+
+footer {
+  background: #732773;
+  height: 130px;
+  width: 100%; /* Adjusted to take full width */
+  align-items: center;
+  z-index: auto;
+  padding: 50px; /* Combined padding-top and padding-left */
+  top: 77%;
+  position: absolute;
+}
+
+/* ----------------------------------------------------------------------------- */
+
+.svg-graphic-undeline {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+}
+
+.in-touch {
+  position: absolute;
+  top: 25%;
+  left: 15%;
+}
+
+.sayhello {
+  font-size: 30px;
+  color: #732773;
+  text-align: center;
+}
+
+/* ----------------------------------------------------------------------------- */
+
+.button-55 {
+  align-self: center;
+  background-color: #fff;
+  border: 2px solid #732773;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Fjalla One", sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  margin: 50px 10px 0 10px;
+
+  /* Unique border-radius styling */
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+}
+
+/* Hover effect */
+.button-55:hover,
+.button-56:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 5px 10px 15px -3px;
+  transform: translateY(-2px); /* Lift effect */
+}
+
+.button-55:focus,
+.button-56:focus {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+}
+
+.button-55:active,
+.button-56:active {
+  transform: scale(0.98);
+}
+
+.button-56 {
+  position: absolute;
+  top: 78%;
+  left: 0%;
+  align-self: center;
+  background-color: #fff;
+  border: 2px solid #732773;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Fjalla One", sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  margin: 50px 10px 0 10px;
+
+  /* Unique border-radius styling */
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+}
+
+/* ----------------------------------------------------------------------------- */
+.svg-graphic-arrow {
+  position: absolute;
+  top: 174%;
+  left: 70%;
+}
+
+/* ----------------------------------------------------------------------------- */
+.button-81 {
+  background-color: #fff;
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1rem 1.6rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  position: absolute;
+  top: 35%;
+  left: 80%;
+}
+
+.button-81:hover {
+  background-color: #1e293b;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .button-81 {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
 }

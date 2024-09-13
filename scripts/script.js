@@ -1,152 +1,140 @@
-// Create an instance of Kinet with custom settings
-var kinet = new Kinet({
-  acceleration: 0.02,
-  friction: 0.18,
-  names: ["x", "y"],
-});
-
-// Select the circle element
-var circle = document.getElementById("circle");
-
-// Set a handler on Kinet tick event
-kinet.on("tick", function (instances) {
-  circle.style.transform = `translate3d(${instances.x.current}px, ${
-    instances.y.current
-  }px, 0) rotateX(${instances.x.velocity / 2}deg) rotateY(${
-    instances.y.velocity / 2
-  }deg)`;
-});
-
-// Call Kinet animate method on mousemove
-document.addEventListener("mousemove", function (event) {
-  kinet.animate("x", event.clientX - window.innerWidth / 2);
-  kinet.animate("y", event.clientY - window.innerHeight / 2);
-});
-
-// Log Kinet start and end events
-kinet.on("start", function () {
-  console.log("start");
-});
-
-kinet.on("end", function () {
-  console.log("end");
-});
-
-// Ensure the page starts at the top on load
 document.addEventListener("DOMContentLoaded", () => {
+  // Ensure Kinet is included and accessible
+  if (typeof Kinet === "undefined") {
+    console.error("Kinet library is not loaded.");
+    return;
+  }
+
+  // Kinet instance with custom settings
+  var kinet = new Kinet({
+    acceleration: 0.02,
+    friction: 0.18,
+    names: ["x", "y"],
+  });
+
+  // Select the circle element
+  var circle = document.getElementById("circle");
+  if (!circle) {
+    console.error('Element with ID "circle" not found.');
+    return;
+  }
+
+  // Set a handler on Kinet tick event
+  kinet.on("tick", function (instances) {
+    circle.style.transform = `translate3d(${instances.x.current}px, ${
+      instances.y.current
+    }px, 0) rotateX(${instances.x.velocity / 2}deg) rotateY(${
+      instances.y.velocity / 2
+    }deg)`;
+  });
+
+  // Animate Kinet on mousemove
+  document.addEventListener("mousemove", function (event) {
+    kinet.animate("x", event.clientX - window.innerWidth / 2);
+    kinet.animate("y", event.clientY - window.innerHeight / 2);
+  });
+
+  // Log Kinet start and end events
+  kinet.on("start", () => console.log("Kinet animation started"));
+  kinet.on("end", () => console.log("Kinet animation ended"));
+
+  // Ensure the page starts at the top on load
   window.scrollTo(0, 0);
 
   // Set initial theme based on checkbox state
   const toggleInput = document.getElementById("checkbox");
-  if (toggleInput.checked) {
-    document.body.classList.add("dark-mode");
-  } else {
-    document.body.classList.add("light-mode");
-  }
-
-  // Add event listener for theme toggle
-  toggleInput.addEventListener("change", () => {
+  if (toggleInput) {
     if (toggleInput.checked) {
       document.body.classList.add("dark-mode");
-      document.body.classList.remove("light-mode");
     } else {
-      document.body.classList.remove("dark-mode");
       document.body.classList.add("light-mode");
     }
-  });
-  // -----------------------------------------------------------------------------
-  // PART - SCROLL
-  // PAGE 1 -> 2 button
-  const page2button = document.getElementById("page2button");
-  const section2 = document.getElementById("section2");
 
-  if (page2button && section2) {
-    page2button.addEventListener("click", function () {
-      // Smooth scroll to Section 2
-      section2.scrollIntoView({ behavior: "smooth" });
+    // Add event listener for theme toggle
+    toggleInput.addEventListener("change", () => {
+      document.body.classList.toggle("dark-mode", toggleInput.checked);
+      document.body.classList.toggle("light-mode", !toggleInput.checked);
     });
-  }
-  //
-  // Add smooth scroll functionality for "Learn More" button
-  const learnMoreButton = document.getElementById("learnMoreButton");
-  const section3 = document.getElementById("section3");
-
-  if (learnMoreButton && section3) {
-    learnMoreButton.addEventListener("click", function () {
-      // Smooth scroll to Section 3
-      section3.scrollIntoView({ behavior: "smooth" });
-    });
+  } else {
+    console.error('Element with ID "checkbox" not found.');
   }
 
-  // Add smooth scroll functionality for "Learn More" button
-  const page3button = document.getElementById("page3button");
-  const section4 = document.getElementById("section4");
+  // Smooth scroll functionality for buttons
+  const smoothScroll = (buttonId, sectionId) => {
+    const button = document.getElementById(buttonId);
+    const section = document.getElementById(sectionId);
+    if (button && section) {
+      button.addEventListener("click", () =>
+        section.scrollIntoView({ behavior: "smooth" })
+      );
+    } else {
+      console.error(
+        `Element with ID "${buttonId}" or "${sectionId}" not found.`
+      );
+    }
+  };
 
-  if (page3button && section4) {
-    page3button.addEventListener("click", function () {
-      // Smooth scroll to Section 4
-      section4.scrollIntoView({ behavior: "smooth" });
-    });
-  }
+  smoothScroll("page2button", "section2");
+  smoothScroll("learnMoreButton", "section3");
+  smoothScroll("page3button", "section4");
+  smoothScroll("page4button", "section1");
 
-  // -----------------------------------------------------------------------------
-
-  // Function to initialize the slideshow for each card
+  // Initialize the slideshow and flip effect for each card
   function initSlideshow(cardElement) {
     const images = cardElement.querySelectorAll(".card-image img");
     const prevBtn = cardElement.querySelector(".prev-btn");
     const nextBtn = cardElement.querySelector(".next-btn");
     let currentIndex = 0;
 
-    // Function to show image based on index
     function showImage(index) {
       images.forEach((img, i) => {
-        img.classList.remove("active");
-        img.classList.add("hidden");
-        if (i === index) {
-          img.classList.add("active");
-          img.classList.remove("hidden");
-        }
+        img.classList.toggle("active", i === index);
+        img.classList.toggle("hidden", i !== index);
       });
     }
 
-    // Event listeners for the buttons
-    prevBtn.addEventListener("click", function () {
-      currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
-      showImage(currentIndex);
-    });
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener("click", () => {
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+        showImage(currentIndex);
+      });
 
-    nextBtn.addEventListener("click", function () {
-      currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
-      showImage(currentIndex);
-    });
+      nextBtn.addEventListener("click", () => {
+        currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+        showImage(currentIndex);
+      });
 
-    // Initialize the first image as active
-    showImage(currentIndex);
+      showImage(currentIndex);
+    } else {
+      console.error("Slideshow buttons not found.");
+    }
   }
 
-  // Function to initialize the flip effect for each card
   function initFlipEffect(cardElement) {
     const content = cardElement.querySelector(".card-content");
     const switchInput = cardElement.querySelector(
       '.checkbox-wrapper input[type="checkbox"]'
     );
 
-    switchInput.addEventListener("change", () => {
-      if (switchInput.checked) {
-        content.style.transform = "rotateY(180deg)";
-      } else {
-        content.style.transform = "rotateY(0deg)";
-      }
-    });
+    if (content && switchInput) {
+      switchInput.addEventListener("change", () => {
+        content.style.transform = switchInput.checked
+          ? "rotateY(180deg)"
+          : "rotateY(0deg)";
+      });
+    } else {
+      console.error("Flip effect elements not found.");
+    }
   }
 
   // Apply functionality to all project cards
-  const projectCards = document.querySelectorAll(".card");
-  projectCards.forEach((card) => {
+  document.querySelectorAll(".card").forEach((card) => {
     initSlideshow(card);
     initFlipEffect(card);
   });
 
-  //---------------------
+  // CV button click handler
+  document.getElementById("cv-button").addEventListener("click", () => {
+    window.open("/docs/Ghazi_Resume___Updated.pdf", "_blank");
+  });
 });
